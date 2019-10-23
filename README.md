@@ -1,0 +1,1 @@
+# r_solr_search
