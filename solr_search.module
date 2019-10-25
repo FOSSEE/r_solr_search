@@ -208,9 +208,9 @@ function ajax_solr_search_result_callback($form, $form_state)
                     $sno++;
                     $output .= '<li>';
                     $output .= '<p><b>Book: &nbsp;</b>' . $doc->title . ' (' . $doc->author . ')</p>';
-                    $output .= '<p><b>Chapter: &nbsp;</b>' . $doc->chapter . '</p>';
-                    $output .= '<p><b>Example: &nbsp;</b>' . $doc->example . '</p>';
-                    $output .= '<p><b>Links: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . base_path() . 'textbook_companion/generate_book/' . $doc->book_id . '"><span style="font-weight:bold;font-size:16px;">&#10549;</span> Download entire book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://rcloud.fossee.in/index?eid=' . $doc->id . '" target="_blank"><span style="font-weight:bold;font-size:20px;">&#187;</span> View this example</a></p>';
+                    $output .= '<p><b>Chapter: &nbsp;</b>' . $doc->chapter[0] . '</p>';
+                    $output .= '<p><b>Example: &nbsp;</b>' . $doc->example[0] . '</p>';
+                    $output .= '<p><b>Links: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . base_path() . 'textbook-companion/download/book/' . $doc->book_id[0]. '"><span style="font-weight:bold;font-size:16px;">&#10549;</span> Download entire book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="127.0.0.1/index?eid=' . $doc->id . '" target="_blank"><span style="font-weight:bold;font-size:20px;">&#187;</span> View this example</a></p>';
                     $output .= '</li>';
                 }
                 $output .= '<ol></div>';
