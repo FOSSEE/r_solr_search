@@ -165,9 +165,8 @@ function add_all_books_to_solr_form_submit($form, &$form_state)
 
 function ajax_solr_search_result_callback($form, $form_state)
 {
+    $cloud_url = variable_get('tbc_r_cloud_url', '');
     $output = '';
-    //$key = '';
-    //var_dump($form_state['values']['tbc_search_key']);die;
     $path = drupal_get_path('module', 'solr_search');
     drupal_add_css($path . '/solr_search.css', 'module');
     drupal_add_js($path . '/solr_search.js', 'module');
@@ -210,7 +209,7 @@ function ajax_solr_search_result_callback($form, $form_state)
                     $output .= '<p><b>Book: &nbsp;</b>' . $doc->title . ' (' . $doc->author . ')</p>';
                     $output .= '<p><b>Chapter: &nbsp;</b>' . $doc->chapter[0] . '</p>';
                     $output .= '<p><b>Example: &nbsp;</b>' . $doc->example[0] . '</p>';
-                    $output .= '<p><b>Links: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . base_path() . 'textbook-companion/download/book/' . $doc->book_id[0]. '"><span style="font-weight:bold;font-size:16px;">&#10549;</span> Download entire book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="127.0.0.1/index?eid=' . $doc->id . '" target="_blank"><span style="font-weight:bold;font-size:20px;">&#187;</span> View this example</a></p>';
+                    $output .= '<p><b>Links: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . base_path() . 'textbook-companion/download/book/' . $doc->book_id[0]. '"><span style="font-weight:bold;font-size:16px;">&#10549;</span> Download entire book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="'. $cloud_url.'?eid=' . $doc->id . '" target="_blank"><span style="font-weight:bold;font-size:20px;">&#187;</span> View this example</a></p>';
                     $output .= '</li>';
                 }
                 $output .= '<ol></div>';

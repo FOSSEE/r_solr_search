@@ -1,5 +1,5 @@
 <?php
-	function tbc_solr_search_settings_form($form_state) {
+	function tbc_solr_search_settings_form($form, &$form_state) {
 
 		$form['tbc_example_file_path'] = array(
 			'#type' => 'textfield',
@@ -16,7 +16,13 @@
 			'#required' => TRUE,
 			'#default_value' => variable_get('tbc_solr_max_results', ''),
 		);
-
+		$form['tbc_r_cloud_url'] = array(
+			'#type' => 'textfield',
+			'#title' => t('R on Cloud URL for post request'),
+			'#size' => 50,
+			'#required' => TRUE,
+			'#default_value' => variable_get('tbc_r_cloud_url', ''),
+		);
 		$form['submit'] = array(
 			'#type' => 'submit',
 			'#value' => t('Submit')
@@ -29,6 +35,8 @@
 
 		variable_set('tbc_example_file_path', $form_state['values']['tbc_example_file_path']);
 		variable_set('tbc_solr_max_results', $form_state['values']['tbc_solr_max_results']);
+		variable_set('tbc_r_cloud_url', $form_state['values']['tbc_r_cloud_url']);
+
 
 		drupal_set_message(t('Settings Updated Successfully!'), 'status');
 	}

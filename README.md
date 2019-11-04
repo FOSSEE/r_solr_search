@@ -1,4 +1,5 @@
 # r_solr_search
+
 This is used in R code search feature on R TBC website.
 
 ##### Requirements: 
@@ -7,5 +8,3 @@ This is used in R code search feature on R TBC website.
 ##### Author: 
 > Prashant Sinalkar
 > FOSSEE, IIT Bombay
-
-
